@@ -570,4 +570,5 @@ Curry Add: 10
 
 ## Other Language Demos
 Makayden has put together a couple demos for how Functional Programming works 
-in a variety of other languages. You can check them out [here](demos/README.md).
+in a variety of other languages. You can check them out 
+[here](https://github.com/mloft74/functional-programming-demos).
