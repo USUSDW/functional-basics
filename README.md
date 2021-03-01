@@ -30,7 +30,8 @@ functional programming. At its core, it's the idea that data should only be
 able to be changed by creating a new version of it.
 
 Let's take a look in python:
-[`immutability.py`](immutability.py)
+
+[`immutability.py`](py/immutability.py)
 ```python
 # Useful typing things.
 from __future__ import annotations
@@ -142,7 +143,8 @@ makes writing pure functions trivially easy, but unfortunately not everything
 is immutable by default.
 
 Let's take a look using python lists:
-[`pure.py`](pure.py)
+
+[`pure.py`](py/pure.py)
 ```python
 def addNextImpure(ls: list):
     top = ls[-1]
@@ -215,7 +217,8 @@ why that's useful takes some time.
 
 Let's first learn how to take and pass functions as parameters, then use them
 inside of functions:
-[`higherOrder1.py`](higherOrder1.py#L1-L9)
+
+[`higherOrder1.py`](py/higherOrder1.py#L1-L9)
 ```python
 import math
 
@@ -236,7 +239,7 @@ That looks pretty simple, right? We just pass a function in without
 parenthesis, then add the parenthesis later. Let's try that with some other
 types of parameters.
 
-[`higherOrder1.py`](higherOrder1.py#L13-L19)
+[`higherOrder1.py`](py/higherOrder1.py#L13-L19)
 ```python
 def applyToNumber(number, fn):
     return fn(number)
@@ -254,7 +257,7 @@ Applying plus3: 7
 And now let's introduce the lambda, something that makes creating those 
 same functions a whole lot easier:
 
-[`higherOrder1.py`](higherOrder1.py#L23-L33)
+[`higherOrder1.py`](py/higherOrder1.py#L23-L33)
 ```python
 square = lambda number: number * number
 
@@ -283,7 +286,7 @@ that requires a loop can also be accomplished with a higher-order function.
 To start, let's try writing a function that looks through the list and makes
 sure every value in the list matches some criteria.
 
-[`higherOrder2.py`](higherOrder2.py#L1-L10)
+[`higherOrder2.py`](py/higherOrder2.py#L1-L10)
 ```python
 numbers = [i for i in range(1, 11)]
 
@@ -310,7 +313,8 @@ value, what if we instead ran an operation on every value and kept track of
 what it returned?
 
 This is called a `map` function.
-[`higherOrder2.py`](higherOrder2.py#L12-L18)
+
+[`higherOrder2.py`](py/higherOrder2.py#L12-L18)
 ```python
 def map(ls, fn):
     results = []
@@ -330,7 +334,7 @@ I mentioned before that functions can also return functions. Here's an
 example of a modified version of the above where we return another function
 from the inside of a function.
 
-[`higherOrder3.py`](higherOrder3.py)
+[`higherOrder3.py`](py/higherOrder3.py)
 ```python
 numbers = [i for i in range(1, 11)]
 
@@ -361,7 +365,7 @@ the standard libraries for them. Python is no exception to this. This is one
 example where the built-in `max` function is used to find the points that 
 maximize a function.
 
-[`higherOrder4.py`](higherOrder4.py)
+[`higherOrder4.py`](py/higherOrder4.py)
 ```python
 def get_points(axis_len=5, centerX = 0, centerY = 0):
     """
@@ -395,7 +399,7 @@ Max h(x, y): (-2, -2)
 
 There's also a useful built-in `functools` package that adds some other options.
 
-[`higherOrder5.py`](higherOrder5.py)
+[`higherOrder5.py`](py/higherOrder5.py)
 ```python
 import functools
 
@@ -455,7 +459,8 @@ All numbers are less than 11? True
 
 Notice how the `max` variable keeps its value even after we call the function
 again. To make this more explicit, we can run the code like this:
-[`closure1.py`](closure1.py)
+
+[`closure1.py`](py/closure1.py)
 ```python
 numbers = [i for i in range(1, 11)]
 
@@ -504,7 +509,7 @@ we get to the `False`.
 You can use this to your advantage to get data (and other functions!) that are
 a part of a function's scope without exposing them to the world, like so:
 
-[`closure2.py`](closure2.py)
+[`closure2.py`](py/closure2.py)
 ```python
 def make_operator(n):
     n2 = n ** 2
@@ -545,7 +550,7 @@ build code that has a clear way to use it.
 Currying is the process of converting a function with multiple arguments into
 a multiple function calls of single arguments. 
 
-[`currying.py`](currying.py)
+[`currying.py`](py/currying.py)
 ```python
 def add(a, b):
     return a + b
